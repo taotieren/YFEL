@@ -11,98 +11,98 @@
 #ifndef ChipOP_H
 #define ChipOP_H
 
-#include <QString>
-#include <QObject>
-#include <QThread>
+#include <QByteArray>
 #include <QList>
 #include <QMultiMap>
+#include <QObject>
+#include <QString>
+#include <QThread>
 #include <QVector>
 #include <QtConcurrent>
 
 #include "chips/chip_type.h"
 
+#include "fel.h"
 #include "spi_nand.h"
 #include "spi_nor.h"
-#include "fel.h"
 
 class ChipOP : public QObject {
-Q_OBJECT
+  Q_OBJECT
 
 signals:
 
-    void release_ui();
+  void release_ui();
 
-private slots:
+public slots:
 
-    void chip_release_ui();
+  void chip_release_ui();
 
 public:
-    ChipOP();
+  ChipOP();
 
-    ~ChipOP() override;
+  ~ChipOP() override;
 
-    /*
-     * Scan Chip, will add fel_status -> fel_chip_ok
-     */
-    void chip_scan_chip();
+  /*
+   * Scan Chip, will add fel_status -> fel_chip_ok
+   */
+  void chip_scan_chip();
 
-    void chip_reset_chip();
+  void chip_reset_chip();
 
-    void chip_enable_jtag();
+  void chip_enable_jtag();
 
-    void chip_exec(uint32_t addr);
+  void chip_exec(uint32_t addr);
 
-    void chip_init_dram(const dram_info_t &param);
+  void chip_init_dram(const dram_info_t &param);
 
-    void chip_init_dram(const dram_param_t &param);
+  void chip_init_dram(const dram_param_t &param);
 
-    void chip_sid();
+  void chip_sid();
 
-    /*
-     * Chip write op
-     */
+  /*
+   * Chip write op
+   */
 
-    void chip_write(uint64_t addr,const QByteArray &buf, uint64_t len);
+  void chip_write(uint64_t addr, const QByteArray &buf, uint64_t len);
 
-    QByteArray chip_read(uint64_t addr, uint64_t len);
+  QByteArray chip_read(uint64_t addr, uint64_t len);
 
-    /*
-     * SPI NAND OP
-     */
-    QString chip_scan_spi_nand();
+  /*
+   * SPI NAND OP
+   */
+  QString chip_scan_spi_nand();
 
-    void chip_erase_spi_nand(uint32_t addr, uint32_t len);
+  void chip_erase_spi_nand(uint32_t addr, uint32_t len);
 
-    void chip_erase_all_spi_nand();
+  void chip_erase_all_spi_nand();
 
-    QByteArray chip_read_spi_nand(uint64_t addr, uint64_t len);
+  QByteArray chip_read_spi_nand(uint64_t addr, uint64_t len);
 
-    void chip_write_spi_nand(uint64_t addr,const QByteArray &buf, uint64_t len);
+  void chip_write_spi_nand(uint64_t addr, const QByteArray &buf, uint64_t len);
 
-    uint32_t chipReadArm32(uint32_t addr);
+  uint32_t chipReadArm32(uint32_t addr);
 
-    /*
-     * SPI NOR OP
-     */
-    QString chip_scan_spi_nor();
+  /*
+   * SPI NOR OP
+   */
+  QString chip_scan_spi_nor();
 
 public: // getter
-    chip_t get_current_chip();
+  chip_t get_current_chip();
 
-    QVector<dram_info_t> get_dram_params();
-
-private:
-    void generate_chip_db();
-
-    bool check_chip();
+  QVector<dram_info_t> get_dram_params();
 
 private:
-    fel *fel_ = new fel();
-    Chips *current_chip = nullptr;
+  void generate_chip_db();
 
-    chip_version_t chip_version{};
-    QVector<Chips *> chip_db;
-	
+  bool check_chip();
+
+private:
+  fel *fel_ = new fel();
+  Chips *current_chip = nullptr;
+
+  chip_version_t chip_version{};
+  QVector<Chips *> chip_db;
 };
 
 #endif // ChipOP_H

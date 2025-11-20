@@ -6,1559 +6,1840 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>407</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>689</width>
-    <height>407</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>YFEL - Yet another FEL Toolkit</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>691</width>
-      <height>371</height>
-     </rect>
+   <layout class="QVBoxLayout" name="centralLayout">
+    <property name="leftMargin">
+     <number>0</number>
     </property>
-    <property name="currentIndex">
-     <number>5</number>
+    <property name="topMargin">
+     <number>0</number>
     </property>
-    <widget class="QWidget" name="chip_tab">
-     <attribute name="title">
-      <string>Chip</string>
-     </attribute>
-     <widget class="QWidget" name="layoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>9</x>
-        <y>9</y>
-        <width>671</width>
-        <height>320</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="top_layout_container">
+      <layout class="QHBoxLayout" name="topLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QLabel" name="chip_chip_name_label">
+        <widget class="QPushButton" name="scan_pushButton">
          <property name="text">
-          <string>Chip Name</string>
+          <string>Scan</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <widget class="QLineEdit" name="chip_name_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_chip_name_pushButton">
-           <property name="text">
-            <string>Copy</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="chip_chip_id_label_2">
+        <widget class="QLabel" name="chip_label">
          <property name="text">
-          <string>Chip ID</string>
+          <string>Current Chip: </string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <widget class="QLineEdit" name="chip_id_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_chip_id_pushButton_2">
-           <property name="text">
-            <string>Copy</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="chip_chip_sid_label_4">
+        <widget class="QLabel" name="chip_label_2">
          <property name="text">
-          <string>Chip SID</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
+          <string>None</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QLineEdit" name="chip_sid_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_chip_sid_pushButton_3">
-           <property name="text">
-            <string>Copy</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="chip_chip_core_label_5">
-         <property name="text">
-          <string>Chip Core</string>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLineEdit" name="chip_core_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_chip_core_pushButton_4">
-           <property name="text">
-            <string>Copy</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="chip_chip_spi_nor_label_6">
-         <property name="text">
-          <string>SPI NOR</string>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
          </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="chip_spi_nor_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_spi_nor_scan_pushButton">
-           <property name="text">
-            <string>Scan</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="chip_chip_spi_nand_label_7">
-         <property name="text">
-          <string>SPI NAND</string>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
          </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLineEdit" name="chip_spi_nand_lineEdit"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="chip_spi_nand_scan_pushButton">
-           <property name="text">
-            <string>Scan</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        </spacer>
        </item>
       </layout>
      </widget>
-    </widget>
-    <widget class="QWidget" name="flash_tab">
-     <attribute name="title">
-      <string>Flash</string>
-     </attribute>
-     <widget class="QTabWidget" name="flash_flash_tabWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>687</width>
-        <height>341</height>
-       </rect>
-      </property>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="spi_erase">
+      <widget class="QWidget" name="chip_tab">
        <attribute name="title">
-        <string>SPI Info</string>
+        <string>Chip</string>
        </attribute>
-       <widget class="QWidget" name="gridLayoutWidget_4">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>661</width>
-          <height>211</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="3" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nand_length_lineEdit">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nor_addr_lineEdit">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nor_currect_nor_chip_lineEdit"/>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nand_address_label">
-           <property name="text">
-            <string>Address</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nand_erase_button">
-           <property name="text">
-            <string>Erase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nand_currect_nand_chip_lineEdit"/>
-         </item>
-         <item row="6" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nor_label">
-           <property name="text">
-            <string>SPI NOR</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="3">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nand_label">
-           <property name="text">
-            <string>SPI NAND</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nand_length_label">
-           <property name="text">
-            <string>Length</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nand_scan_button">
-           <property name="text">
-            <string>Scan SPI NAND</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nand_addr_lineEdit">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nor_scan_button">
-           <property name="text">
-            <string>Scan SPI NOR</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nor_address_label">
-           <property name="text">
-            <string>Address</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="3">
-          <widget class="QLineEdit" name="flash_spi_erase_spi_nor_length">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="QLabel" name="flash_spi_erase_spi_nor_length_label">
-           <property name="text">
-            <string>Length</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nor_erase_button">
-           <property name="text">
-            <string>Erase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nand_setall_button">
-           <property name="text">
-            <string>Erase All</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4">
-          <widget class="QPushButton" name="flash_spi_erase_spi_nor_setall_button">
-           <property name="text">
-            <string>Erase All</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QVBoxLayout" name="chipTabLayout">
+        <item>
+         <widget class="QWidget" name="gridLayoutWidget">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0" colspan="4">
+            <widget class="QTextBrowser" name="chip_info_textBrowser">
+             <property name="html">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="chip_chip_name_pushButton">
+             <property name="text">
+              <string>Read Chip Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="chip_chip_id_pushButton_2">
+             <property name="text">
+              <string>Read Chip ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="chip_chip_sid_pushButton_3">
+             <property name="text">
+              <string>Read SID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="chip_chip_core_pushButton_4">
+             <property name="text">
+              <string>Read Core Count</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="chip_name_label">
+             <property name="text">
+              <string>Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="chip_name_lineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="chip_name_copy_pushButton">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3" rowspan="4">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="chip_id_label">
+             <property name="text">
+              <string>ID:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="chip_id_lineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QPushButton" name="chip_id_copy_pushButton">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="chip_sid_label">
+             <property name="text">
+              <string>SID:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="chip_sid_lineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QPushButton" name="chip_sid_copy_pushButton">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="chip_core_label">
+             <property name="text">
+              <string>Core:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="chip_core_lineEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QPushButton" name="chip_core_copy_pushButton">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
-      <widget class="QWidget" name="fel_flash">
+      <widget class="QWidget" name="flash_tab">
        <attribute name="title">
-        <string>Download</string>
+        <string>Flash</string>
        </attribute>
-       <widget class="QWidget" name="gridLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>661</width>
-          <height>291</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
-         </property>
-         <item row="7" column="3">
-          <widget class="QLabel" name="flash_label_10">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_5">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="2">
-          <widget class="QPushButton" name="flash_pushButton_5">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_7">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_8">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_4"/>
-         </item>
-         <item row="6" column="3">
-          <widget class="QLabel" name="flash_label_9">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QPushButton" name="flash_pushButton_2">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_7">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_7"/>
-         </item>
-         <item row="0" column="2">
-          <widget class="QPushButton" name="flash_pushButton_1">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_3">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_2"/>
-         </item>
-         <item row="1" column="3">
-          <widget class="QLabel" name="flash_label_2">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_8"/>
-         </item>
-         <item row="5" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_6">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_2">
-           <property name="text">
-            <string>0x48000000</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QLabel" name="flash_label_3">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_2">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_1"/>
-         </item>
-         <item row="3" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_4">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_3"/>
-         </item>
-         <item row="2" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_3"/>
-         </item>
-         <item row="7" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_9">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2">
-          <widget class="QPushButton" name="flash_pushButton_3">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_4">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="2">
-          <widget class="QPushButton" name="flash_pushButton_7">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="2">
-          <widget class="QPushButton" name="flash_pushButton_8">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="flash_label_1">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QLabel" name="flash_label_6">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="3">
-          <widget class="QLabel" name="flash_label_8">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_1">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_6"/>
-         </item>
-         <item row="4" column="3">
-          <widget class="QLabel" name="flash_label_7">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_1">
-           <property name="text">
-            <string>0x0</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QPushButton" name="flash_pushButton_6">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QCheckBox" name="flash_checkBox_5">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="flash_lineEdit_5"/>
-         </item>
-         <item row="3" column="2">
-          <widget class="QPushButton" name="flash_pushButton_4">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4">
-          <widget class="QLineEdit" name="flash_lineEdit_1_8">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="4">
-          <widget class="QPushButton" name="flash_flash_button">
-           <property name="text">
-            <string>Flash</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="flash_label_11">
-           <property name="text">
-            <string>@</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="3">
-          <widget class="QLabel" name="flash_label_12">
-           <property name="text">
-            <string>-&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1" colspan="2">
-          <widget class="QComboBox" name="flash_device_comboBox"/>
-         </item>
-        </layout>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="spi_write">
-       <attribute name="title">
-        <string>SPI Write</string>
-       </attribute>
-       <widget class="QWidget" name="layoutWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>681</width>
-          <height>311</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="flash_spi_read_2" stretch="0,10,0">
-         <item>
-          <layout class="QHBoxLayout" name="flash_spi_read_read_horizontalLayout_2">
-           <property name="leftMargin">
-            <number>10</number>
-           </property>
-           <property name="topMargin">
-            <number>10</number>
-           </property>
-           <property name="rightMargin">
-            <number>10</number>
-           </property>
+       <layout class="QVBoxLayout" name="flashTabLayout">
+        <item>
+         <widget class="QWidget" name="flash_container">
+          <layout class="QVBoxLayout" name="flashMainLayout">
            <item>
-            <layout class="QGridLayout" name="gridLayout_6" columnstretch="1,10,0,0">
-             <item row="1" column="0">
-              <widget class="QLabel" name="flash_spi_write_addr_label">
+            <widget class="QTabWidget" name="flash_spi_tabWidget">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="flash_spi_nand_tab">
+              <attribute name="title">
+               <string>SPI NAND</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="flash_spi_nand_layout">
+               <item>
+                <widget class="QWidget" name="flash_spi_nand_container">
+                 <layout class="QVBoxLayout" name="flash_spi_nand_widget_layout">
+                  <item>
+                   <layout class="QHBoxLayout" name="flash_spi_nand_control_layout">
+                    <property name="leftMargin">
+                     <number>6</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>6</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>6</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>6</number>
+                    </property>
+                    <item>
+                     <widget class="QPushButton" name="chip_spi_nand_scan_pushButton">
+                      <property name="text">
+                       <string>Scan</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="flash_spi_nand_chip_label">
+                      <property name="text">
+                       <string>Chip: </string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="flash_spi_nand_chip_label_2">
+                      <property name="text">
+                       <string>None</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="flash_spi_nand_control_spacer">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QSplitter" name="flash_spi_nand_splitter">
+                    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QWidget" name="layoutWidget_5">
+     <layout class="QHBoxLayout" name="flash_spi_nand_erase_layout">
+      <item>
+       <layout class="QVBoxLayout" name="flash_spi_nand_erase_control_layout">
+        <item>
+         <widget class="QLabel" name="flash_spi_nand_erase_label">
+          <property name="text">
+           <string>Erase</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="flash_spi_erase_spi_nand_scan_button">
+          <property name="text">
+           <string>Scan</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="flash_spi_erase_spi_nand_erase_button">
+          <property name="text">
+           <string>Erase</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="flash_spi_erase_spi_nand_setall_button">
+          <property name="text">
+           <string>Select All</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="flash_spi_nand_erase_control_spacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="flash_spi_erase_spi_nand_listWidget"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_6">
+     <layout class="QHBoxLayout" name="flash_spi_nand_rw_layout" stretch="5,1,5">
+      <item>
+       <layout class="QVBoxLayout" name="flash_spi_nand_read_layout">
+        <item>
+         <widget class="QLabel" name="flash_spi_nand_read_label">
+          <property name="text">
+           <string>Read</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="flash_spi_nand_read_control_layout" columnstretch="1,3,1">
+          <item row="0" column="0">
+           <widget class="QLabel" name="flash_spi_nand_read_address_label">
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="flash_spi_nand_read_address_lineEdit">
+            <property name="text">
+             <string>0x000000</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="flash_spi_read_button">
+            <property name="text">
+             <string>Read</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="flash_spi_nand_read_length_label">
+            <property name="text">
+             <string>Length</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="flash_spi_nand_read_length_lineEdit">
+            <property name="text">
+             <string>0x100000</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="flash_spi_read_pushButton">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="flash_spi_read_hexView">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="flash_spi_nand_line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="flash_spi_nand_write_layout">
+        <item>
+         <widget class="QLabel" name="flash_spi_nand_write_label">
+          <property name="text">
+           <string>Write</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="flash_spi_nand_write_control_layout" columnstretch="0,3,0">
+          <item row="0" column="0">
+           <widget class="QLabel" name="flash_spi_nand_write_file_label">
+            <property name="text">
+             <string>File</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="flash_spi_nand_write_file_lineEdit"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="flash_spi_write_fileOpen_button">
+            <property name="text">
+             <string>Open</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="flash_spi_nand_write_address_label">
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="flash_spi_nand_write_address_lineEdit">
+            <property name="text">
+             <string>0x000000</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="flash_spi_write_button">
+            <property name="text">
+             <string>Write</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="flash_spi_write_hexView">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </item>
+  <item>
+   <layout class="QHBoxLayout" name="flash_spi_nand_status_layout">
+    <property name="leftMargin">
+     <number>6</number>
+    </property>
+    <property name="topMargin">
+     <number>6</number>
+    </property>
+    <property name="rightMargin">
+     <number>6</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="flash_spi_nand_status_label">
+      <property name="text">
+       <string>Status:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="flash_spi_nand_status_label_2">
+      <property name="text">
+       <string>Ready</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="flash_spi_nand_status_spacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </item>
+ </layout>
+</widget>
+</item>
+</layout>
+</widget>
+<widget class="QWidget" name="flash_spi_nor_tab">
+ <attribute name="title">
+  <string>SPI NOR</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="flash_spi_nor_layout">
+  <item>
+   <widget class="QWidget" name="flash_spi_nor_container">
+    <layout class="QVBoxLayout" name="flash_spi_nor_widget_layout">
+     <item>
+      <layout class="QHBoxLayout" name="flash_spi_nor_control_layout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="chip_spi_nor_scan_pushButton">
+         <property name="text">
+          <string>Scan</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="flash_spi_nor_chip_label">
+         <property name="text">
+          <string>Chip: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="flash_spi_nor_chip_label_2">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="flash_spi_nor_control_spacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSplitter" name="flash_spi_nor_splitter">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget_7">
+        <layout class="QHBoxLayout" name="flash_spi_nor_erase_layout">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QVBoxLayout" name="flash_spi_nor_erase_control_layout">
+           <item>
+            <widget class="QLabel" name="flash_spi_nor_erase_label">
+             <property name="text">
+              <string>Erase</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_spi_erase_spi_nor_scan_button">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Scan</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="flash_pushButton_8">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_8"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_7"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_6"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_5"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_4"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_3"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_2"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="flash_lineEdit_1"/>
+           </item>
+           <item>
+            <spacer name="flash_spi_nor_erase_control_spacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListWidget" name="flash_spi_erase_spi_nor_listWidget"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_8">
+        <layout class="QHBoxLayout" name="flash_spi_nor_rw_layout" stretch="5,1,5">
+         <item>
+          <layout class="QVBoxLayout" name="flash_spi_nor_read_layout">
+           <item>
+            <widget class="QLabel" name="flash_spi_nor_read_label">
+             <property name="text">
+              <string>Read</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="flash_spi_nor_read_control_layout" columnstretch="1,3,1">
+             <item row="0" column="0">
+              <widget class="QLabel" name="flash_spi_nor_read_address_label">
                <property name="text">
                 <string>Address</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="flash_spi_write_fileOpen_button">
-               <property name="text">
-                <string>Open</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1" colspan="2">
-              <widget class="QLineEdit" name="flash_spi_write_fileName_lineEdit">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QPushButton" name="flash_spi_write_button">
-               <property name="text">
-                <string>Write</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="flash_spi_write_fileName_label">
-               <property name="text">
-                <string>File</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" colspan="2">
-              <widget class="QLineEdit" name="flash_spi_write_addr_lineEdit">
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="flash_spi_nor_read_address_lineEdit">
                <property name="text">
                 <string>0x000000</string>
                </property>
               </widget>
              </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="flash_spi_nor_read_button">
+               <property name="text">
+                <string>Read</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="flash_spi_nor_read_length_label">
+               <property name="text">
+                <string>Length</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="flash_spi_nor_read_length_lineEdit">
+               <property name="text">
+                <string>0x100000</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="flash_spi_nor_read_save_button">
+               <property name="text">
+                <string>Save</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="flash_spi_nor_read_hexView">
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
             </layout>
            </item>
           </layout>
          </item>
          <item>
-          <layout class="QVBoxLayout" name="flash_spi_write_hexView">
-           <property name="leftMargin">
-            <number>5</number>
+          <widget class="Line" name="flash_spi_nor_line">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>5</number>
-           </property>
-          </layout>
+          </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="flash_spi_read_save_horizontalLayout_2"/>
+          <layout class="QVBoxLayout" name="flash_spi_nor_write_layout">
+           <item>
+            <widget class="QLabel" name="flash_spi_nor_write_label">
+             <property name="text">
+              <string>Write</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="flash_spi_nor_write_control_layout" columnstretch="0,3,0">
+             <item row="0" column="0">
+              <widget class="QLabel" name="flash_spi_nor_write_file_label">
+               <property name="text">
+                <string>File</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="flash_spi_nor_write_file_lineEdit"/>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="flash_spi_nor_write_open_button">
+               <property name="text">
+                <string>Open</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="flash_spi_nor_write_address_label">
+               <property name="text">
+                <string>Address</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="flash_spi_nor_write_address_lineEdit">
+               <property name="text">
+                <string>0x000000</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="flash_spi_nor_write_write_button">
+               <property name="text">
+                <string>Write</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="flash_spi_nor_write_hexView">
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+            </layout>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="spi_read">
-       <attribute name="title">
-        <string>SPI Read</string>
-       </attribute>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>681</width>
-          <height>311</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="flash_spi_read" stretch="0,10,0">
-         <item>
-          <layout class="QHBoxLayout" name="flash_spi_read_read_horizontalLayout">
-           <property name="leftMargin">
-            <number>10</number>
-           </property>
-           <property name="topMargin">
-            <number>10</number>
-           </property>
-           <property name="rightMargin">
-            <number>10</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="flash_spi_read_addr_label">
-             <property name="text">
-              <string>Address</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="flash_spi_read_addr_lineEdit">
-             <property name="text">
-              <string>0x000000</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="flash_spi_read_length_label">
-             <property name="text">
-              <string>Length</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="flash_spi_read_length_lineEdit">
-             <property name="text">
-              <string>0x100000</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="flash_spi_read_pushButton">
-             <property name="text">
-              <string>Read</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="flash_spi_read_button">
-             <property name="text">
-              <string>Save</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="flash_spi_read_hexView">
-           <property name="leftMargin">
-            <number>5</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>5</number>
-           </property>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="flash_spi_read_save_horizontalLayout"/>
-         </item>
-        </layout>
-       </widget>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="run_tab">
-     <attribute name="title">
-      <string>Run</string>
-     </attribute>
-     <widget class="QWidget" name="layoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>681</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="run_Tab_Layout" stretch="0,10,0">
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="flash_spi_nor_status_layout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
        <item>
-        <layout class="QHBoxLayout" name="run_run_horizontalLayout">
-         <property name="leftMargin">
-          <number>10</number>
+        <widget class="QLabel" name="flash_spi_nor_status_label">
+         <property name="text">
+          <string>Status:</string>
          </property>
-         <property name="topMargin">
-          <number>10</number>
-         </property>
-         <property name="rightMargin">
-          <number>10</number>
-         </property>
-         <item>
-          <layout class="QGridLayout" name="gridLayout_7" columnstretch="1,10,0,0">
-           <item row="1" column="0">
-            <widget class="QLabel" name="run_run_address_label">
-             <property name="text">
-              <string>Address</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QPushButton" name="run_open_file">
-             <property name="text">
-              <string>Open</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1" colspan="2">
-            <widget class="QLineEdit" name="run_file_open_lineEdit">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QPushButton" name="run_run_button">
-             <property name="text">
-              <string>Exec</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="run_run_file_label">
-             <property name="text">
-              <string>File</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1" colspan="2">
-            <widget class="QLineEdit" name="run_run_address_lineEdit">
-             <property name="text">
-              <string>0x000000</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
+        </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="run_file_hexView">
-         <property name="leftMargin">
-          <number>5</number>
+        <widget class="QLabel" name="flash_spi_nor_status_label_2">
+         <property name="text">
+          <string>Ready</string>
          </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>5</number>
-         </property>
-        </layout>
+        </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="run_horizontalLayout"/>
+        <spacer name="flash_spi_nor_status_spacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="dump_tab">
-     <attribute name="title">
-      <string>Dump</string>
-     </attribute>
-     <widget class="QWidget" name="layoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>681</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="dump_tab_layout" stretch="0,10,0">
-       <item>
-        <layout class="QHBoxLayout" name="dump_dump_horizontalLayout">
-         <property name="leftMargin">
-          <number>10</number>
-         </property>
-         <property name="topMargin">
-          <number>10</number>
-         </property>
-         <property name="rightMargin">
-          <number>10</number>
-         </property>
-         <item>
-          <layout class="QGridLayout" name="gridLayout_8" columnstretch="1,10,0,0">
-           <item row="1" column="0">
-            <widget class="QLabel" name="dump_dump_length_label">
-             <property name="text">
-              <string>Length</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QPushButton" name="dump_do_dump_button">
-             <property name="text">
-              <string>Dump</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1" colspan="2">
-            <widget class="QLineEdit" name="dump_address_lineEdit">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QPushButton" name="dump_save_file_button">
-             <property name="text">
-              <string>Save</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="dump_dump_address_label">
-             <property name="text">
-              <string>Address</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1" colspan="2">
-            <widget class="QLineEdit" name="dump_length_lineEdit">
-             <property name="text">
-              <string>0x000000</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="dump_data_hexView">
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>5</number>
-         </property>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="dump_horizontalLayout"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="data_tab">
-     <attribute name="title">
-      <string>Data</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="dram_tab">
-     <attribute name="title">
-      <string>DRAM</string>
-     </attribute>
-     <widget class="QWidget" name="gridLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>661</width>
-        <height>329</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="5">
-        <widget class="QLabel" name="dram_dram_tpr12_label">
-         <property name="text">
-          <string>dram tpr12</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <widget class="QLabel" name="dram_dram_tpr4_label">
-         <property name="text">
-          <string>dram tpr4</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="5">
-        <widget class="QLabel" name="dram_dram_tpr20_label">
-         <property name="text">
-          <string>dram tpr20</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="3">
-        <widget class="QLabel" name="dram_dram_tpr7_label">
-         <property name="text">
-          <string>dram tpr7</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="5">
-        <widget class="QLabel" name="dram_dram_tpr14_label">
-         <property name="text">
-          <string>dram tpr14</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="dram_dram_tpr1_label">
-         <property name="text">
-          <string>dram tpr1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr17_lineEdit"/>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="dram_dram_mr0_label">
-         <property name="text">
-          <string>dram mr0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="6">
-        <widget class="QPushButton" name="dram_load_preset_pushButton">
-         <property name="text">
-          <string>Load Presets</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="dram_dram_mr1_label">
-         <property name="text">
-          <string>dram mr1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr12_lineEdit"/>
-       </item>
-       <item row="9" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr9_lineEdit"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="dram_dram_odt_en_label">
-         <property name="text">
-          <string>dram odt en</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QLabel" name="dram_dram_tpr2_label">
-         <property name="text">
-          <string>dram tpr2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="3">
-        <widget class="QLabel" name="dram_dram_tpr11_label">
-         <property name="text">
-          <string>dram tpr11</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="3">
-        <widget class="QLabel" name="dram_dram_tpr6_label">
-         <property name="text">
-          <string>dram tpr6</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr21_lineEdit"/>
-       </item>
-       <item row="8" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr8_lineEdit"/>
-       </item>
-       <item row="5" column="3">
-        <widget class="QLabel" name="dram_dram_tpr5_label">
-         <property name="text">
-          <string>dram tpr5</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr2_lineEdit"/>
-       </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="dram_dram_tpr0_label">
-         <property name="text">
-          <string>dram tpr0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="2">
-        <widget class="QLineEdit" name="dram_dram_mr0_lineEdit"/>
-       </item>
-       <item row="5" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr5_lineEdit"/>
-       </item>
-       <item row="9" column="3">
-        <widget class="QLabel" name="dram_dram_tpr9_label">
-         <property name="text">
-          <string>dram tpr9</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="5">
-        <widget class="QLabel" name="dram_dram_tpr15_label">
-         <property name="text">
-          <string>dram tpr15</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="2">
-        <widget class="QLineEdit" name="dram_dram_mr3_lineEdit"/>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="dram_dram_para1_label">
-         <property name="text">
-          <string>dram para1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr13_lineEdit"/>
-       </item>
-       <item row="9" column="2">
-        <widget class="QLineEdit" name="dram_dram_mr2_lineEdit"/>
-       </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="dram_dram_mr3_label">
-         <property name="text">
-          <string>dram mr3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="5">
-        <widget class="QLabel" name="dram_dram_tpr17_label">
-         <property name="text">
-          <string>dram tpr17</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="5">
-        <widget class="QLabel" name="dram_dram_tpr13_label">
-         <property name="text">
-          <string>dram tpr13</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="2">
-        <widget class="QLineEdit" name="dram_dram_mr1_lineEdit"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="dram_dram_type_label">
-         <property name="text">
-          <string>dram type</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr1_lineEdit"/>
-       </item>
-       <item row="3" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr3_lineEdit"/>
-       </item>
-       <item row="0" column="2" colspan="4">
-        <widget class="QComboBox" name="dram_load_preset_comboBox"/>
-       </item>
-       <item row="5" column="2">
-        <widget class="QLineEdit" name="dram_dram_para1_lineEdit"/>
-       </item>
-       <item row="4" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr15_lineEdit"/>
-       </item>
-       <item row="11" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr11_lineEdit"/>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="dram_dram_mr2_label">
-         <property name="text">
-          <string>dram mr2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="5">
-        <widget class="QCheckBox" name="dram_init_dram_uart_checkbox">
-         <property name="text">
-          <string>UART</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLineEdit" name="dram_dram_type_lineEdit"/>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="dram_dram_para2_label">
-         <property name="text">
-          <string>dram para2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr18_lineEdit"/>
-       </item>
-       <item row="7" column="5">
-        <widget class="QLabel" name="dram_dram_tpr18_label">
-         <property name="text">
-          <string>dram tpr18</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="dram_load_preset_label">
-         <property name="text">
-          <string>Preset</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QLineEdit" name="dram_dram_para2_lineEdit"/>
-       </item>
-       <item row="11" column="6">
-        <widget class="QPushButton" name="dram_init_dram_btn">
-         <property name="text">
-          <string>Init DRAM</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QLabel" name="dram_dram_tpr3_label">
-         <property name="text">
-          <string>dram tpr3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr4_lineEdit"/>
-       </item>
-       <item row="5" column="5">
-        <widget class="QLabel" name="dram_dram_tpr16_label">
-         <property name="text">
-          <string>dram tpr16</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr19_lineEdit"/>
-       </item>
-       <item row="10" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr10_lineEdit"/>
-       </item>
-       <item row="5" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr16_lineEdit"/>
-       </item>
-       <item row="3" column="2">
-        <widget class="QLineEdit" name="dram_dram_zq_lineEdit"/>
-       </item>
-       <item row="4" column="2">
-        <widget class="QLineEdit" name="dram_dram_odt_en_lineEdit"/>
-       </item>
-       <item row="8" column="5">
-        <widget class="QLabel" name="dram_dram_tpr19_label">
-         <property name="text">
-          <string>dram tpr19</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr6_lineEdit"/>
-       </item>
-       <item row="11" column="2">
-        <widget class="QLineEdit" name="dram_dram_tpr0_lineEdit"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="dram_dram_zq_label">
-         <property name="text">
-          <string>dram zq</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr14_lineEdit"/>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="dram_dram_clk_lineEdit"/>
-       </item>
-       <item row="8" column="3">
-        <widget class="QLabel" name="dram_dram_tpr8_label">
-         <property name="text">
-          <string>dram tpr8</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="dram_label_dram_clk">
-         <property name="text">
-          <string>dram clk</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="6">
-        <widget class="QLineEdit" name="dram_dram_tpr20_lineEdit"/>
-       </item>
-       <item row="10" column="3">
-        <widget class="QLabel" name="dram_dram_tpr10_label">
-         <property name="text">
-          <string>dram tpr10</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="4">
-        <widget class="QLineEdit" name="dram_dram_tpr7_lineEdit"/>
-       </item>
-       <item row="10" column="5">
-        <widget class="QLabel" name="dram_dram_tpr21_label">
-         <property name="text">
-          <string>dram tpr21</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="misc_tab">
-     <attribute name="title">
-      <string>Misc</string>
-     </attribute>
-     <widget class="QWidget" name="gridLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>661</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="1">
-        <widget class="QPushButton" name="Misc_reset_pushButton">
-         <property name="text">
-          <string>Reset</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QPushButton" name="Misc_enable_neon_pushButton">
-         <property name="text">
-          <string>Enable NEON</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QPushButton" name="Misc_enable_jtag">
-         <property name="text">
-          <string>Enable JTAG</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="Misc_exec_addr_lineEdit"/>
-       </item>
-       <item row="2" column="3">
-        <widget class="QPushButton" name="Misc_enable_smp_pushButton">
-         <property name="text">
-          <string>Enable SMP</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QPushButton" name="Misc_exec_addr_btn">
-         <property name="text">
-          <string>Execute</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="Misc_exec_addr_label">
-         <property name="text">
-          <string>Address</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>0</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_7">
-     <property name="spacing">
-      <number>6</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="scan_pushButton">
-       <property name="maximumSize">
-        <size>
-         <width>75</width>
-         <height>19</height>
-        </size>
-       </property>
+  </item>
+ </layout>
+</widget>
+</widget>
+</item>
+</layout>
+</widget>
+</item>
+</layout>
+</widget>
+<widget class="QWidget" name="run_tab">
+ <attribute name="title">
+  <string>Run</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="runTabLayout">
+  <item>
+   <layout class="QVBoxLayout" name="run_Tab_Layout">
+    <item>
+     <layout class="QHBoxLayout" name="run_run_horizontalLayout">
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_7" columnstretch="1,10,0,0">
+        <item row="1" column="0">
+         <widget class="QLabel" name="run_run_address_label">
+          <property name="text">
+           <string>Address</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="run_open_file">
+          <property name="text">
+           <string>Open</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QLineEdit" name="run_file_open_lineEdit">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="run_run_button">
+          <property name="text">
+           <string>Exec</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="run_run_file_label">
+          <property name="text">
+           <string>File</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QLineEdit" name="run_run_address_lineEdit">
+          <property name="text">
+           <string>0x000000</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="run_file_hexView">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="run_horizontalLayout"/>
+    </item>
+   </layout>
+  </item>
+ </layout>
+</widget>
+<widget class="QWidget" name="dump_tab">
+ <attribute name="title">
+  <string>Dump</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="dumpTabLayout">
+  <item>
+   <layout class="QVBoxLayout" name="dump_tab_layout">
+    <item>
+     <layout class="QHBoxLayout" name="dump_dump_horizontalLayout">
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_8" columnstretch="1,10,0,0">
+        <item row="1" column="0">
+         <widget class="QLabel" name="dump_dump_length_label">
+          <property name="text">
+           <string>Length</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="dump_do_dump_button">
+          <property name="text">
+           <string>Dump</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QLineEdit" name="dump_address_lineEdit">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="dump_save_file_button">
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="dump_dump_address_label">
+          <property name="text">
+           <string>Address</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QLineEdit" name="dump_length_lineEdit">
+          <property name="text">
+           <string>0x000000</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="dump_data_hexView">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="dump_horizontalLayout"/>
+    </item>
+   </layout>
+  </item>
+ </layout>
+</widget>
+<widget class="QWidget" name="data_tab">
+ <attribute name="title">
+  <string>Data</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="dataTabLayout"/>
+</widget>
+<widget class="QWidget" name="dram_tab">
+ <attribute name="title">
+  <string>DRAM</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="dramTabLayout">
+  <item>
+   <widget class="QWidget" name="dram_container">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="1" column="5">
+      <widget class="QLabel" name="dram_dram_tpr12_label">
        <property name="text">
-        <string>Scan</string>
+        <string>dram tpr12</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="chip_label">
+     <item row="4" column="3">
+      <widget class="QLabel" name="dram_dram_tpr4_label">
        <property name="text">
-        <string>Current Chip: </string>
+        <string>dram tpr4</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="chip_label_2">
+     <item row="9" column="5">
+      <widget class="QLabel" name="dram_dram_tpr20_label">
        <property name="text">
-        <string>None</string>
+        <string>dram tpr20</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QLabel" name="dram_dram_tpr7_label">
+       <property name="text">
+        <string>dram tpr7</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <widget class="QLabel" name="dram_dram_tpr14_label">
+       <property name="text">
+        <string>dram tpr14</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLabel" name="dram_dram_tpr1_label">
+       <property name="text">
+        <string>dram tpr1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr17_lineEdit"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="dram_dram_mr0_label">
+       <property name="text">
+        <string>dram mr0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QPushButton" name="dram_load_preset_pushButton">
+       <property name="text">
+        <string>Load Presets</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="dram_dram_mr1_label">
+       <property name="text">
+        <string>dram mr1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr12_lineEdit"/>
+     </item>
+     <item row="9" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr9_lineEdit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="dram_dram_odt_en_label">
+       <property name="text">
+        <string>dram odt en</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="dram_dram_tpr2_label">
+       <property name="text">
+        <string>dram tpr2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="3">
+      <widget class="QLabel" name="dram_dram_tpr11_label">
+       <property name="text">
+        <string>dram tpr11</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QLabel" name="dram_dram_tpr6_label">
+       <property name="text">
+        <string>dram tpr6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr21_lineEdit"/>
+     </item>
+     <item row="8" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr8_lineEdit"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLabel" name="dram_dram_tpr5_label">
+       <property name="text">
+        <string>dram tpr5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr2_lineEdit"/>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="dram_dram_tpr0_label">
+       <property name="text">
+        <string>dram tpr0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLineEdit" name="dram_dram_mr0_lineEdit"/>
+     </item>
+     <item row="5" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr5_lineEdit"/>
+     </item>
+     <item row="9" column="3">
+      <widget class="QLabel" name="dram_dram_tpr9_label">
+       <property name="text">
+        <string>dram tpr9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLabel" name="dram_dram_tpr15_label">
+       <property name="text">
+        <string>dram tpr15</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="2">
+      <widget class="QLineEdit" name="dram_dram_mr3_lineEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="dram_dram_para1_label">
+       <property name="text">
+        <string>dram para1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr13_lineEdit"/>
+     </item>
+     <item row="9" column="2">
+      <widget class="QLineEdit" name="dram_dram_mr2_lineEdit"/>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="dram_dram_mr3_label">
+       <property name="text">
+        <string>dram mr3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="5">
+      <widget class="QLabel" name="dram_dram_tpr17_label">
+       <property name="text">
+        <string>dram tpr17</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="dram_dram_tpr13_label">
+       <property name="text">
+        <string>dram tpr13</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QLineEdit" name="dram_dram_mr1_lineEdit"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="dram_dram_type_label">
+       <property name="text">
+        <string>dram type</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr1_lineEdit"/>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr3_lineEdit"/>
+     </item>
+     <item row="0" column="2" colspan="4">
+      <widget class="QComboBox" name="dram_load_preset_comboBox"/>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLineEdit" name="dram_dram_para1_lineEdit"/>
+     </item>
+     <item row="4" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr15_lineEdit"/>
+     </item>
+     <item row="11" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr11_lineEdit"/>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="dram_dram_mr2_label">
+       <property name="text">
+        <string>dram mr2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="5">
+      <widget class="QCheckBox" name="dram_init_dram_uart_checkbox">
+       <property name="text">
+        <string>UART</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLineEdit" name="dram_dram_type_lineEdit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="dram_dram_para2_label">
+       <property name="text">
+        <string>dram para2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr18_lineEdit"/>
+     </item>
+     <item row="7" column="5">
+      <widget class="QLabel" name="dram_dram_tpr18_label">
+       <property name="text">
+        <string>dram tpr18</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="dram_load_preset_label">
+       <property name="text">
+        <string>Preset</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLineEdit" name="dram_dram_para2_lineEdit"/>
+     </item>
+     <item row="11" column="6">
+      <widget class="QPushButton" name="dram_init_dram_btn">
+       <property name="text">
+        <string>Init DRAM</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLabel" name="dram_dram_tpr3_label">
+       <property name="text">
+        <string>dram tpr3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr4_lineEdit"/>
+     </item>
+     <item row="5" column="5">
+      <widget class="QLabel" name="dram_dram_tpr16_label">
+       <property name="text">
+        <string>dram tpr16</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr19_lineEdit"/>
+     </item>
+     <item row="10" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr10_lineEdit"/>
+     </item>
+     <item row="5" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr16_lineEdit"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLineEdit" name="dram_dram_zq_lineEdit"/>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLineEdit" name="dram_dram_odt_en_lineEdit"/>
+     </item>
+     <item row="8" column="5">
+      <widget class="QLabel" name="dram_dram_tpr19_label">
+       <property name="text">
+        <string>dram tpr19</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr6_lineEdit"/>
+     </item>
+     <item row="11" column="2">
+      <widget class="QLineEdit" name="dram_dram_tpr0_lineEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="dram_dram_zq_label">
+       <property name="text">
+        <string>dram zq</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr14_lineEdit"/>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="dram_dram_clk_lineEdit"/>
+     </item>
+     <item row="8" column="3">
+      <widget class="QLabel" name="dram_dram_tpr8_label">
+       <property name="text">
+        <string>dram tpr8</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="dram_label_dram_clk">
+       <property name="text">
+        <string>dram clk</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="6">
+      <widget class="QLineEdit" name="dram_dram_tpr20_lineEdit"/>
+     </item>
+     <item row="10" column="3">
+      <widget class="QLabel" name="dram_dram_tpr10_label">
+       <property name="text">
+        <string>dram tpr10</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLineEdit" name="dram_dram_tpr7_lineEdit"/>
+     </item>
+     <item row="10" column="5">
+      <widget class="QLabel" name="dram_dram_tpr21_label">
+       <property name="text">
+        <string>dram tpr21</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>686</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionExit"/>
-    <addaction name="actionOpen"/>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout_YFEL"/>
-    <addaction name="actionWeb"/>
-   </widget>
-   <widget class="QMenu" name="menuTool">
-    <property name="title">
-     <string>Tools</string>
-    </property>
-    <addaction name="actionInit_DDR"/>
-    <addaction name="actionEnable_JTAG"/>
-    <addaction name="actionReset_CPU"/>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuTool"/>
-   <addaction name="menuHelp"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionInit_DDR">
-   <property name="text">
-    <string>Init DDR</string>
-   </property>
-  </action>
-  <action name="actionEnable_JTAG">
-   <property name="text">
-    <string>Enable JTAG</string>
-   </property>
-  </action>
-  <action name="actionAbout_YFEL">
-   <property name="text">
-    <string>About YFEL</string>
-   </property>
-  </action>
-  <action name="actionWeb">
-   <property name="text">
-    <string>Web</string>
-   </property>
-  </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </action>
-  <action name="actionReset_CPU">
-   <property name="text">
-    <string>Reset CPU</string>
-   </property>
-  </action>
-  <action name="actionOpen">
-   <property name="text">
-    <string>Open</string>
-   </property>
-  </action>
+  </item>
+ </layout>
+</widget>
+<widget class="QWidget" name="mass_production_tab">
+ <attribute name="title">
+  <string>Mass Production</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="massProductionTabLayout">
+  <item>
+   <layout class="QVBoxLayout" name="mass_production_layout">
+    <item>
+     <widget class="QLabel" name="mass_production_title_label">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>USB Mass Production</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="mass_production_table">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Port</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Interface</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Progress</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Action</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="mass_production_control_layout">
+      <item>
+       <widget class="QPushButton" name="mass_production_scan_button">
+        <property name="text">
+         <string>Scan Devices</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mass_production_start_all_button">
+        <property name="text">
+         <string>Start All</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mass_production_stop_all_button">
+        <property name="text">
+         <string>Stop All</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="mass_production_control_spacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="mass_production_image_label">
+        <property name="text">
+         <string>Image File:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="mass_production_image_path">
+        <property name="placeholderText">
+         <string>Select image file for burning</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mass_production_image_browse_button">
+        <property name="text">
+         <string>Browse</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="mass_production_stats_label">
+      <property name="text">
+       <string>Success: 0  Failed: 0  Total: 0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </item>
+ </layout>
+</widget>
+<widget class="QWidget" name="misc_tab">
+ <attribute name="title">
+  <string>Misc</string>
+ </attribute>
+ <layout class="QVBoxLayout" name="miscTabLayout">
+  <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QPushButton" name="Misc_reset_pushButton">
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="Misc_enable_neon_pushButton">
+      <property name="text">
+       <string>Enable NEON</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QPushButton" name="Misc_enable_jtag">
+      <property name="text">
+       <string>Enable JTAG</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="Misc_exec_addr_lineEdit"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="Misc_enable_smp_pushButton">
+      <property name="text">
+       <string>Enable SMP</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="Misc_exec_addr_btn">
+      <property name="text">
+       <string>Execute</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="Misc_exec_addr_label">
+      <property name="text">
+       <string>Address</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </item>
+ </layout>
+</widget>
+</widget>
+</item>
+</layout>
+</widget>
+<widget class="QMenuBar" name="menubar">
+ <widget class="QMenu" name="menuFile">
+  <property name="title">
+   <string>File</string>
+  </property>
+  <addaction name="actionExit"/>
+  <addaction name="actionOpen"/>
  </widget>
- <resources/>
- <connections/>
+ <widget class="QMenu" name="menuHelp">
+  <property name="title">
+   <string>Help</string>
+  </property>
+  <addaction name="actionAbout_YFEL"/>
+  <addaction name="actionWeb"/>
+ </widget>
+ <widget class="QMenu" name="menuTool">
+  <property name="title">
+   <string>Tools</string>
+  </property>
+  <addaction name="actionInit_DDR"/>
+  <addaction name="actionEnable_JTAG"/>
+  <addaction name="actionReset_CPU"/>
+ </widget>
+ <addaction name="menuFile"/>
+ <addaction name="menuTool"/>
+ <addaction name="menuHelp"/>
+</widget>
+<widget class="QStatusBar" name="statusbar"/>
+<action name="actionInit_DDR">
+ <property name="text">
+  <string>Init DDR</string>
+ </property>
+</action>
+<action name="actionEnable_JTAG">
+ <property name="text">
+  <string>Enable JTAG</string>
+ </property>
+</action>
+<action name="actionAbout_YFEL">
+ <property name="text">
+  <string>About YFEL</string>
+ </property>
+</action>
+<action name="actionWeb">
+ <property name="text">
+  <string>Web</string>
+ </property>
+</action>
+<action name="actionExit">
+ <property name="text">
+  <string>Exit</string>
+ </property>
+</action>
+<action name="actionReset_CPU">
+ <property name="text">
+  <string>Reset CPU</string>
+ </property>
+</action>
+<action name="actionOpen">
+ <property name="text">
+  <string>Open</string>
+ </property>
+</action>
+</widget>
+<resources/>
+<connections/>
 </ui>

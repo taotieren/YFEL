@@ -9,158 +9,226 @@
  */
 
 #include <QDebug>
-#include <QFuture>
-#include <QtConcurrent>
+#include <QtEndian>
 
 #include "exceptions.h"
 #include "usb.h"
 #include "x.h"
 
-usb::usb() = default;
+usb::usb() {
+  context = nullptr;
+  desc = {};
+  ctx = {};
+}
 
 void usb::usb_init() {
-    libusb_init(&context);
-    qDebug() << "USB INIT";
+  int res = libusb_init(&context);
+  if (res != 0) {
+    throw QException();
+  }
+  libusb_set_debug(context, 3);
 }
 
 void usb::usb_exit() {
-    libusb_exit(context);
-    qDebug() << "DEINIT USB";
-}
-
-void usb::close_usb() const {
-    qDebug() << "close usb ctx";
+  if (ctx.hdl) {
+    libusb_release_interface(ctx.hdl, 0);
     libusb_close(ctx.hdl);
+    ctx.hdl = nullptr;
+  }
+  if (context) {
+    libusb_exit(context);
+    context = nullptr;
+  }
 }
 
 void usb::open_usb() {
-    qDebug() << "open usb ctx, scaning target chip";
+  // 查找并打开第一个FEL设备
+  QList<libusb_device *> devices = list_fel_devices();
+  if (devices.isEmpty()) {
+    throw cannot_find_fel_device();
+  }
 
-    libusb_device **list;
+  libusb_device *device = devices.first();
+  if (!open_usb(device)) {
+    throw usb_driver_wrong();
+  }
 
-    size_t count = libusb_get_device_list(context, &list);
-    qDebug() << "scan usb devices, count=" << count;
+  // 释放设备引用
+  unref_device(device);
+}
 
-    bool target_found = false;
-    for (size_t i = 0; i < count; ++i) {
-        libusb_device *device = list[i];
-        int rc = libusb_get_device_descriptor(device, &desc);
-        if (rc != 0) {
-            qDebug("ERROR: Can't get device list: %d\r\n", rc);
-        }
-        if (desc.idVendor == 0x1f3a && desc.idProduct == 0xefe8) {
-            rc = libusb_open(device, &ctx.hdl);
-            if (rc != 0) {
-                qDebug("ERROR: Can't connect to device: %d\r\n", rc);
-                throw usb_driver_wrong();
-            } else {
-                uint8_t string_buffer_product[4096];
-                libusb_get_string_descriptor_ascii(ctx.hdl, desc.iProduct,
-                                                   string_buffer_product, sizeof(string_buffer_product));
-                qDebug() << "Find Device: " << string_buffer_product;
-                target_found = true;
-                break;
-            }
-        }
+bool usb::open_usb(libusb_device *device) {
+  int rc;
+  libusb_device_handle *handle;
+
+  rc = libusb_open(device, &handle);
+  if (rc != 0) {
+    qWarning() << "Failed to open device:" << libusb_error_name(rc);
+    return false;
+  }
+
+  // 获取设备描述符
+  rc = libusb_get_device_descriptor(device, &desc);
+  if (rc != 0) {
+    qWarning() << "Failed to get device descriptor:" << libusb_error_name(rc);
+    libusb_close(handle);
+    return false;
+  }
+
+  // 尝试获取配置描述符以查找端点
+  libusb_config_descriptor *config;
+  rc = libusb_get_active_config_descriptor(device, &config);
+  if (rc != 0) {
+    qWarning() << "Failed to get config descriptor:" << libusb_error_name(rc);
+    libusb_close(handle);
+    return false;
+  }
+
+  // 查找端点
+  const libusb_interface *interface = &config->interface[0];
+  const libusb_interface_descriptor *interface_desc = &interface->altsetting[0];
+  for (int i = 0; i < interface_desc->bNumEndpoints; i++) {
+    const libusb_endpoint_descriptor *endpoint = &interface_desc->endpoint[i];
+    if (endpoint->bEndpointAddress & LIBUSB_ENDPOINT_IN) {
+      ctx.epin = endpoint->bEndpointAddress;
+    } else {
+      ctx.epout = endpoint->bEndpointAddress;
     }
-    if (target_found == 0) {
-        throw cannot_find_fel_device();
+  }
+
+  libusb_free_config_descriptor(config);
+
+  // 尝试获取内核驱动
+  if (libusb_kernel_driver_active(handle, 0) == 1) {
+    if (libusb_detach_kernel_driver(handle, 0) != 0) {
+      qWarning() << "Failed to detach kernel driver";
+      libusb_close(handle);
+      return false;
     }
+  }
+
+  // 声明接口
+  rc = libusb_claim_interface(handle, 0);
+  if (rc != 0) {
+    qWarning() << "Failed to claim interface:" << libusb_error_name(rc);
+    libusb_close(handle);
+    return false;
+  }
+
+  ctx.hdl = handle;
+  return true;
+}
+
+void usb::close_usb() const {
+  if (ctx.hdl) {
+    libusb_release_interface(ctx.hdl, 0);
+    libusb_close(ctx.hdl);
+  }
 }
 
 void usb::usb_fel_init() {
-    struct libusb_config_descriptor *config;
-    const struct libusb_interface *iface;
-    const struct libusb_interface_descriptor *setting;
-    const struct libusb_endpoint_descriptor *ep;
-    int if_idx, set_idx, ep_idx;
+  uint8_t buf[1];
+  int rc;
 
-    if (libusb_claim_interface(ctx.hdl, 0) == 0) {
-        if (libusb_get_active_config_descriptor(libusb_get_device(ctx.hdl), &config) == 0) {
-            for (if_idx = 0; if_idx < config->bNumInterfaces; if_idx++) {
-                iface = config->interface + if_idx;
-                for (set_idx = 0; set_idx < iface->num_altsetting; set_idx++) {
-                    setting = iface->altsetting + set_idx;
-                    for (ep_idx = 0; ep_idx < setting->bNumEndpoints; ep_idx++) {
-                        ep = setting->endpoint + ep_idx;
-                        if ((ep->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) != LIBUSB_TRANSFER_TYPE_BULK)
-                            continue;
-                        if ((ep->bEndpointAddress & LIBUSB_ENDPOINT_DIR_MASK) == LIBUSB_ENDPOINT_IN)
-                            ctx.epin = ep->bEndpointAddress;
-                        else
-                            ctx.epout = ep->bEndpointAddress;
-                    }
-                }
-            }
-            libusb_free_config_descriptor(config);
-        }
-    }
-}
-
-void usb::usb_bulk_send(int ep, uint8_t *buf, size_t len) const {
-    size_t max_chunk = 128 * 1024;
-    int bytes;
-
-    while (len > 0) {
-        size_t chunk = len < max_chunk ? len : max_chunk;
-        auto r = static_cast<libusb_error>(libusb_bulk_transfer(ctx.hdl, ep, buf, static_cast<int>(chunk),
-                                                                &bytes, usb_timeout));
-        if (r != 0) {
-            qDebug() << "usb_bulk_send failed, ret =" << r << libusb_strerror(r);
-            throw usb_bulk_send_error();
-        }
-        len -= bytes;
-        buf += bytes;
-    }
-}
-
-void usb::usb_bulk_recv(int ep, uint8_t *buf, size_t len) const {
-    int bytes;
-
-    while (len > 0) {
-        auto r = static_cast<libusb_error>(libusb_bulk_transfer(ctx.hdl, ep, buf, static_cast<int>(len),
-                                                                &bytes, usb_timeout));
-        if (r != 0) {
-            qDebug() << "usb_bulk_recv failed, ret =" << r << libusb_strerror(r);
-            throw usb_bulk_recv_error();
-        }
-        len -= bytes;
-        buf += bytes;
-    }
-}
-
-void usb::send_usb_request(int type, size_t length) {
-    usb_request_t req{};
-    for (size_t i = 0; i < 8; ++i) {
-        req.magic[i] = fel_send_magic[i];
-    }
-    req.request = cpu_to_le16(type);
-    req.length = cpu_to_le32(length);
-    req.unknown1 = cpu_to_le32(0x0c000000);
-    req.length2 = req.length;
-
-    usb_bulk_send(ctx.epout, (uint8_t *) &req, sizeof(struct usb_request_t));
-}
-
-void usb::read_usb_response() {
-    char buf[13];
-    usb_bulk_recv(ctx.epin, (uint8_t *) buf, sizeof(buf));
-    for (size_t i = 0; i < 4; ++i) {
-        if (buf[i] != fel_recv_magic[i]) {
-            throw read_usb_response_failed();
-        }
-    }
+  // 清空可能存在的旧数据
+  do {
+    rc = libusb_bulk_transfer(ctx.hdl, ctx.epin, buf, sizeof(buf), nullptr,
+                              100);
+  } while (rc == 0);
 }
 
 void usb::usb_write(const void *buf, size_t len) {
-    send_usb_request(0x12, len);
-    usb_bulk_send(ctx.epout, (uint8_t *) buf, len);
-    read_usb_response();
+  usb_bulk_send(ctx.epout, (uint8_t *)buf, len);
 }
 
 void usb::usb_read(void *data, size_t len) {
-    send_usb_request(0x11, len);
-    usb_bulk_send(ctx.epin, (uint8_t *) data, len);
-    read_usb_response();
+  usb_bulk_recv(ctx.epin, (uint8_t *)data, len);
 }
 
+QList<libusb_device *> usb::list_fel_devices() {
+  QList<libusb_device *> fel_devices;
+  libusb_device **list;
+  ssize_t count = libusb_get_device_list(context, &list);
+  if (count < 0) {
+    qWarning() << "Failed to get device list:" << libusb_error_name(count);
+    return fel_devices;
+  }
+
+  for (ssize_t i = 0; i < count; i++) {
+    libusb_device *device = list[i];
+    libusb_device_descriptor desc;
+
+    int rc = libusb_get_device_descriptor(device, &desc);
+    if (rc != 0) {
+      continue;
+    }
+
+    // 检查是否为Allwinner FEL设备 (VID: 0x1f3a)
+    if (desc.idVendor == 0x1f3a) {
+      // 增加引用计数
+      libusb_ref_device(device);
+      fel_devices.append(device);
+    }
+  }
+
+  libusb_free_device_list(list, 1);
+  return fel_devices;
+}
+
+void usb::unref_device(libusb_device *dev) {
+  if (dev) {
+    libusb_unref_device(dev);
+  }
+}
+
+void usb::usb_bulk_send(int ep, uint8_t *buf, size_t len) const {
+  int rc;
+  int transferred;
+
+  while (len > 0) {
+    rc = libusb_bulk_transfer(ctx.hdl, ep, buf, len, &transferred,
+                              usb_bulk_timeout);
+    if (rc != 0) {
+      qWarning() << "Bulk write failed:" << libusb_error_name(rc);
+      throw usb_bulk_send_error();
+    }
+    buf += transferred;
+    len -= transferred;
+  }
+}
+
+void usb::usb_bulk_recv(int ep, uint8_t *buf, size_t len) const {
+  int rc;
+  int transferred;
+
+  while (len > 0) {
+    rc = libusb_bulk_transfer(ctx.hdl, ep, buf, len, &transferred,
+                              usb_bulk_timeout);
+    if (rc != 0) {
+      qWarning() << "Bulk read failed:" << libusb_error_name(rc);
+      throw usb_bulk_recv_error();
+    }
+    buf += transferred;
+    len -= transferred;
+  }
+}
+
+void usb::send_usb_request(int type, size_t length) {
+  struct usb_request_t req = {.magic = {'A', 'W', 'U', 'B', 'S', 'U', 'B', 'M'},
+                              .length = qToLittleEndian((uint32_t)length),
+                              .unknown1 = 0,
+                              .request = qToLittleEndian((uint16_t)type),
+                              .length2 = qToLittleEndian((uint32_t)length),
+                              .pad = {0}};
+
+  usb_write(&req, sizeof(req));
+}
+
+void usb::read_usb_response() {
+  char magic[4];
+  usb_read(magic, sizeof(magic));
+
+  if (memcmp(magic, "AWUB", 4) != 0) {
+    throw read_usb_response_failed();
+  }
+}

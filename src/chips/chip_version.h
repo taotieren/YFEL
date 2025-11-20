@@ -15,7 +15,7 @@
 #ifndef YFEL_CHIP_VERSION_H
 #define YFEL_CHIP_VERSION_H
 
-#include <QObject>
+#include <stdint.h>
 
 typedef struct chip_version {
     char magic[8];

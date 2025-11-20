@@ -5,6 +5,8 @@
 #include <QByteArray>
 #include <QFile>
 #include <QMutex>
+#include <QApplication>
+#include <QPalette>
 
 class QHexView : public QAbstractScrollArea {
 Q_OBJECT
